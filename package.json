@@ -1,0 +1,23 @@
+{
+  "name": "evangadi-forum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkykg/Evangadi-forum.git"
+  },
+  "author": "MK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkykg/Evangadi-forum/issues"
+  },
+  "homepage": "https://github.com/mkykg/Evangadi-forum#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0"
+  }
+}
