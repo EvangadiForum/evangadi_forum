@@ -1,14 +1,17 @@
+require("dotenv").config()
 const express = require("express");
 const app = express();
 const port = 3307;
 
 const dbConnection = require("./db/dbConfig")
-
-const userRoute = require("./routes/userRoute")
+const questionRoute = require('./routes/questionRoute')
+const userRoute = require("./routes/userRoute");
+const authMiddleware = require("./middleware/authMiddleware");
 
 app.use(express.json())
 
 app.use("/api/users", userRoute)
+app.use("/api/questions", authMiddleware, questionRoute)
 
 async function start() {
     try {
