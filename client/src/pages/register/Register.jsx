@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import axios from '../axiosConfig/AxiosConfig'
+import { Link, useNavigate } from 'react-router-dom'
 function Register() {
+    const navigate = useNavigate()
     const userNameDom = useRef(null)
     const firstNameDom = useRef(null)
     const lastNameDom = useRef(null)
@@ -9,16 +11,29 @@ function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        const usernameValue = userNameDom.current.value;
+        const firstnameValue = firstNameDom.current.value;
+        const lastnameValue = lastNameDom.current.value;
+        const emailValue = emailDom.current.value;
+        const passwordValue = passwordDom.current.value;
+
+        if (!usernameValue || !firstnameValue || !lastnameValue || !emailValue || !passwordValue) {
+            alert('Please provide all the information required')
+            return;
+        }
         try {
-            await axios.post('/users/register', {
-                username: "",
-                firstname: "",
-                lastname: "",
-                email: "",
-                password: ""
+            const { data } = await axios.post('/users/register', {
+                username: usernameValue,
+                firstname: firstnameValue,
+                lastname: lastnameValue,
+                email: emailValue,
+                password: passwordValue
             })
+            localStorage.setItem("token", data.token)
+            // navigate("/login")
         } catch (error) {
-            
+            alert('Something went wrong. Please try again!')
+            onsole.log(error.response.data)
         }
     }
   return (
@@ -51,6 +66,7 @@ function Register() {
                   </div>
                   <button type='submit'>Register</button>
               </form>
+              <Link to={'/login'}>Login</Link>
           </section>
       </>
   )

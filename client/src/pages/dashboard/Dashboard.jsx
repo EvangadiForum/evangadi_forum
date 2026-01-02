@@ -1,8 +1,9 @@
-import React from 'react'
-
+import React, {useContext} from 'react'
+import {AppState} from '../../App'
 function Dashboard() {
+  const {user} = useContext(AppState)
   return (
-    <div>Dashboard</div>
+    <div>Dashboard { user.username }</div>
   )
 }
 
