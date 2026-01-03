@@ -1,5 +1,5 @@
-// ===== FILE: src/routes/questionRoutes.js =====
 import express from "express";
+import { verifyToken } from "../middleware/authMiddleware";
 const router = express.Router();
 
 // GET /api/questions - Get all questions
