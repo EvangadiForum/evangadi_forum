@@ -1,7 +1,7 @@
 import React from 'react'
-import module from "./header.module.css";
+import module from "./header.module.css"
 import evangadi from '../../../public/evangadi.png'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
