@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "evangadi-forum",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "cors": "^2.8.5",
+    "mysql2": "^3.16.0",
+    "nodejs": "^0.0.0"
+  }
+}
