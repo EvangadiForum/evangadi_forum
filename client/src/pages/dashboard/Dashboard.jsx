@@ -3,7 +3,7 @@ import {AppState} from '../../App'
 function Dashboard() {
   const {user} = useContext(AppState)
   return (
-    <div>Dashboard { user.username }</div>
+    <div>Dashboard { user?.username }</div>
   )
 }
 

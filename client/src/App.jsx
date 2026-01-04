@@ -18,7 +18,7 @@ function App() {
     try {
       const { data } = await axios.get("/user/check", {
         headers: {
-          Authorization: 'Bearer' + token
+          Authorization: `Bearer ${token}`
         }
       })
       setUser(data)
