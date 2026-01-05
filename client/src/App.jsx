@@ -4,6 +4,7 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import axios from './pages/axiosConfig/AxiosConfig'
+import AskQuestion from './pages/askQuestion/AskQuestion'
 
 export const AppState = createContext()
   
@@ -18,7 +19,7 @@ function App() {
     try {
       const { data } = await axios.get("/user/check", {
         headers: {
-          Authorization: 'Bearer' + token
+          Authorization: `Bearer ${token}`
         }
       })
       setUser(data)
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/questions/ask' element={<AskQuestion />} />
         </Routes>
       </AppState.Provider>
     </>
