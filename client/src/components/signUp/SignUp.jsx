@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import api from "../../Utility/axios";
-import classes from "./Sign_up.module.css";
+import api from '../../pages/axiosConfig/AxiosConfig'
+import classes from "./signup.module.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
