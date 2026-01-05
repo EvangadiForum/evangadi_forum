@@ -1,4 +1,4 @@
-import { db } from "../config/db.js";
+import db from "../config/db.js";
 export const postAnswer = async (req, res) => {
   const { questionId, answer } = req.body;
   await db.query(
@@ -19,13 +19,3 @@ export const getAnswers = async (req, res) => {
   );
   res.json(rows);
 };
-
-
-// git checkout main
-// git pull origin main
-// git checkout Your Branch
-// git merge main
-
-// git add .
-// git commit -m "Your message"
-// git push origin Your branch
