@@ -11,13 +11,12 @@ router.get("/api/question", async (req, res) => {
     // Send response
     return res.status(200).json({
       total_questions: questions.length,
-      questions: questions
+      questions: questions,
     });
-
   } catch (error) {
     // Handle server error
     return res.status(500).json({
-      error: "Internal server error"
+      error: "Internal server error",
     });
   }
 });

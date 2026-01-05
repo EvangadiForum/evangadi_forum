@@ -1,5 +1,5 @@
-const express = require("express");
-// import express from "express";
+// const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // GET /api/answer/:question_id
@@ -24,21 +24,16 @@ router.get("/api/answer/:question_id", async (req, res) => {
     return res.status(200).json({
       question_id,
       total_answers: answers.length,
-      answers
+      answers,
     });
-
   } catch (error) {
     return res.status(500).json({
-      error: "Internal server error"
+      error: "Internal server error",
     });
   }
 });
 
-
 export default router;
-
-
-
 
 // ===== FILE: src/routes/answersRouter.js =====
 // import express from "express";

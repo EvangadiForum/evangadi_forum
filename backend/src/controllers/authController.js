@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import db from "../config/DB.js"; // from TADESSE db.js
+import { db } from "../config/db.js"; // from TADESSE db.js
 
 // POST /api/user/register
 export async function register(req, res) {
@@ -55,7 +55,7 @@ export async function register(req, res) {
 // POST /api/user/login
 export async function login(req, res) {
   try {
-    const { email, password } = req.body; 
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).json({
