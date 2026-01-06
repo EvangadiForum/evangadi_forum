@@ -1,4 +1,4 @@
-import { db } from "../config/db.js";
+import db from "../config/db.js";
 
 export const getQuestions = async (req, res) => {
   try {
@@ -65,6 +65,9 @@ export const createQuestion = async (req, res) => {
 export const getQuestionById = async (req, res) => {
   try {
     const { id } = req.params;
+
+    console.log("Received request for question ID:", id);
+    console.log("User from token:", req.user);
 
     // Get question with user details
     const [questions] = await db.query(
