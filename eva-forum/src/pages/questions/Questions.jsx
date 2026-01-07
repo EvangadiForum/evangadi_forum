@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import "./questions/Questions.css";
+import { RxAvatar } from "react-icons/rx";
 
 export default function Questions() {
   const [questions, setQuestions] = useState([]);

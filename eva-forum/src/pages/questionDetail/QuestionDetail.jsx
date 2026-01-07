@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import styles from "./QuestionDetail.module.css";
+import { RxAvatar } from "react-icons/rx";
 
 export default function QuestionDetail() {
   const { id } = useParams();
@@ -16,36 +17,32 @@ export default function QuestionDetail() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const fetchQuestionAndAnswers = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        // Fetch question details
+        const questionResponse = await api.get(`/questions/${id}`);
+        console.log("Question response:", questionResponse.data);
+        setQuestion(questionResponse.data); // FIXED: data is not nested
+
+        // Fetch answers for this question
+        const answersResponse = await api.get(`/answers/${id}`);
+        console.log("Answers response:", answersResponse.data);
+        setAnswers(answersResponse.data.answers || []);
+
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching question:", err);
+        console.error("Error details:", err.response?.data);
+        setError(err.response?.data?.message || "Failed to load question");
+        setLoading(false);
+      }
+    };
+
     fetchQuestionAndAnswers();
   }, [id]);
-
-  const fetchQuestionAndAnswers = async () => {
-    try {
-      setLoading(true);
-      setError("");
-
-      //Fetch question details
-      const questionResponse = await api.get(`/questions/${id}`);
-      console.log("Question response:", questionResponse.data);
-
-      //The response IS the question object directly
-      setQuestion(questionResponse.data);
-
-      // Fetch answers for this question
-      const answersResponse = await api.get(`/answers/${id}`);
-      console.log("Answers response:", answersResponse.data);
-
-      //Access the answers array from the response
-      setAnswers(answersResponse.data.answers || []); // This is correct
-
-      setLoading(false);
-    } catch (err) {
-      console.error("Error fetching question:", err);
-      console.error("Error details:", err.response?.data);
-      setError(err.response?.data?.message || "Failed to load question");
-      setLoading(false);
-    }
-  };
 
   const handleSubmitAnswer = async (e) => {
     e.preventDefault();
@@ -69,7 +66,7 @@ export default function QuestionDetail() {
 
       // Refresh answers to show the new one
       const answersResponse = await api.get(`/answers/${id}`);
-      setAnswers(answersResponse.data.answers || []); //Access .answers property
+      setAnswers(answersResponse.data.answers || []); // FIXED: Was .data
 
       // Clear the textarea
       setAnswerText("");
@@ -124,7 +121,8 @@ export default function QuestionDetail() {
                 {/* Avatar Section */}
                 <div className={styles.avatarSection}>
                   <div className={styles.avatar}>
-                    {getInitials(answer.username)}
+                    {/* {getInitials(answer.username)} */}
+                    <RxAvatar />
                   </div>
                   <div className={styles.answerUsername}>
                     {answer.username || `User ${answer.user_id}`}

@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext.jsx";
 import api from "../../api/axios";
 import { IoIosArrowForward } from "react-icons/io";
 import styles from "./Home.module.css";
+import { RxAvatar } from "react-icons/rx";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -94,7 +95,8 @@ export default function Home() {
                 {/* Rounded avatar with user initial */}
                 <div>
                   <span className={styles.avatar}>
-                    {getInitials(question.username)}
+                    {/* {getInitials(question.username)} */}
+                    <RxAvatar />
                   </span>
                   <span className={styles.username}>
                     {question.username || `User ${question.user_id}`}
