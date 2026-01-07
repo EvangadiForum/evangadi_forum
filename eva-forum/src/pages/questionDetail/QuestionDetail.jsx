@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import styles from "./QuestionDetail.module.css";
+import { RxAvatar } from "react-icons/rx";
 
 export default function QuestionDetail() {
   const { id } = useParams();
@@ -120,7 +121,8 @@ export default function QuestionDetail() {
                 {/* Avatar Section */}
                 <div className={styles.avatarSection}>
                   <div className={styles.avatar}>
-                    {getInitials(answer.username)}
+                    {/* {getInitials(answer.username)} */}
+                    <RxAvatar />
                   </div>
                   <div className={styles.answerUsername}>
                     {answer.username || `User ${answer.user_id}`}
