@@ -112,12 +112,11 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: solid, gray;
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: white;
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 10px;

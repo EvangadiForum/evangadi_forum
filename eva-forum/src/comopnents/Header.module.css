@@ -5,8 +5,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: rgba(244, 243, 243, 2);
-  box-shadow: 0 2px 5px rgba(244, 243, 243, 0.1);
+  background-color: #ff8c00;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navLinks {
