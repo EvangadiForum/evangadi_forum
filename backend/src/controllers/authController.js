@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import db from "../config/DB.js"; // from TADESSE db.js
+import db from "../config/db.js"; // from TADESSE db.js
 
 // POST /api/user/register
 export async function register(req, res) {
@@ -55,7 +55,7 @@ export async function register(req, res) {
 // POST /api/user/login
 export async function login(req, res) {
   try {
-    const { email, password } = req.body; 
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).json({
@@ -88,16 +88,22 @@ export async function login(req, res) {
     }
 
     const token = jwt.sign(
-      { userid: user.userid, username: user.username },
+      { id: user.id, username: user.username },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
 
+    // Return user data along with token
     return res.status(200).json({
       message: "User login successful",
       token,
+      user: {
+        id: user.id,
+        username: user.username,
+      },
     });
   } catch (err) {
+    console.error("Login error:", err);
     return res.status(500).json({
       error: "Internal Server Error",
       message: "An unexpected error occurred.",
@@ -110,6 +116,6 @@ export function checkUser(req, res) {
   return res.status(200).json({
     message: "Valid user",
     username: req.user.username,
-    userid: req.user.userid,
+    id: req.user.id,
   });
 }

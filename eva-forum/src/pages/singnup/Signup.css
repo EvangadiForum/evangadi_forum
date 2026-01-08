@@ -1,0 +1,304 @@
+/* Signup.css */
+
+.signupContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+/* LEFT SIDE - Signup Form */
+.signupContainer > div:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.signupContainer > div:first-child > div:first-child h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Top Paragraphs - Side by Side */
+.signupContainer > div:first-child > div:nth-child(2) {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.signupContainer > div:first-child > div:nth-child(2) p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Error Message */
+.signupContainer > div:first-child > p[style*="color: red"] {
+  color: #e74c3c !important;
+  background-color: #fee;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  border: 1px solid #e74c3c;
+}
+
+/* Form Styles */
+.signupContainer form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input Fields */
+.signupContainer form input {
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.signupContainer form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signupContainer form input::placeholder {
+  color: #999;
+}
+
+/* Email Input - Full Width - First in order */
+.signupContainer form input[name="email"] {
+  width: 100%;
+  order: 1;
+}
+
+/* First Name & Last Name Container - Side by Side */
+.nameRow {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  order: 2;
+}
+
+.nameRow input {
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Password Input with Show/Hide Icon Container */
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+  order: 3;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.passwordToggle:hover {
+  color: #667eea;
+}
+
+.passwordToggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Username Input - After password */
+.signupContainer form input[name="username"] {
+  width: 100%;
+  order: 4;
+}
+
+/* Submit Button */
+.signupContainer form button[type="submit"] {
+  order: 5;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.signupContainer form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.signupContainer form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Bottom Paragraphs */
+.signupContainer > div:first-child > div:last-child {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.signupContainer > div:first-child > div:last-child p {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+/* RIGHT SIDE - Description/About Section */
+.descriptionContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  color: rgb(51, 44, 44);
+}
+
+.aboutContent {
+  max-width: 500px;
+}
+
+.aboutContent p {
+  color: #666;
+}
+
+.aboutContent > p:first-child {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.aboutContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.aboutContent p:not(:first-child) {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.howItWorksBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* color: gold; */
+  color: #e0e0e0;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.howItWorksBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .signupContainer {
+    flex-direction: column;
+  }
+
+  .signupContainer > div:first-child,
+  .descriptionContainer {
+    flex: none;
+    width: 100%;
+  }
+
+  .descriptionContainer {
+    min-height: 50vh;
+  }
+
+  .signupContainer > div:first-child > div:first-child h2,
+  .aboutContent h2 {
+    font-size: 2rem;
+  }
+
+  /* Stack paragraphs on mobile */
+  .signupContainer > div:first-child > div:nth-child(2) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .signupContainer > div:first-child {
+    padding: 2rem 1.5rem;
+  }
+
+  .descriptionContainer {
+    padding: 2rem 1.5rem;
+  }
+
+  .signupContainer > div:first-child > div:first-child h2 {
+    font-size: 1.75rem;
+  }
+
+  .aboutContent h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Stack First Name and Last Name on small screens */
+  .nameRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,52 @@
+/* About Section Styles */
+.aboutSection {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.aboutContent {
+  max-width: 500px;
+  color: white;
+}
+
+.aboutLabel {
+  color: gold;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.aboutContent h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.aboutContent p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #d1d1d1;
+}
+
+.howItWorksBtn {
+  background: gold;
+  color: #333;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.howItWorksBtn:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
