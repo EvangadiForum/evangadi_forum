@@ -1,22 +1,23 @@
-import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../config/jwt.js";
+const jwt = require('jsonwebtoken')
 
-const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization;
 
-  if (!authHeader) {
-    return res.status(401).json({ message: "Authorization required" });
-  }
+async function authMiddleware(req, res, next) {
+    const authHeader = req.headers.authorization
 
-  const token = authHeader.split(" ")[1];
+    if (!authHeader || !authHeader.startsWith('Bearer')) {
+        return res.status(401).json({msg: "Auth invalid"})
+    }
+    const token = authHeader.split(' ')[1]
 
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    return res.status(401).json({ message: "Invalid or expired token" });
-  }
-};
+    try {
 
-export default authMiddleware;
+
+        const { username, userid } = jwt.verify(token, process.env.TOKEN)
+        req.user = { username, userid } 
+        next()
+    } catch (error) {
+        return res.status(401).json({msg: "Auth invalid"})
+    }
+}
+
+module.exports = authMiddleware 

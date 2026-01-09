@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer {
+    background-color: #3A4559;
+    width: 100%;
+    height: 220px;
+    display: flex;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    margin: 40px 0 0 150px;
+}
+.socials {
+    display: flex;
+    margin: 10px 0 0 150px;
+    gap: 30px;
+}
+.center, .right {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 200px;
+}
+
+.header, .link {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+
+}
+.header {
+    font-size: 30px;
+    font-weight: 400;
+}
+.link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
