@@ -1,9 +1,5 @@
-<<<<<<< HEAD:back-end/src/controller/answerController.js
 import { db } from "../config/db.js";
 
-=======
-import db from "../config/db.js";
->>>>>>> 8d621b9409ec206abe6873c1b588ed1b2e87bcb6:backend/src/controllers/answerController.js
 export const postAnswer = async (req, res) => {
   const { questionId, answer } = req.body;
 
@@ -17,12 +13,11 @@ export const postAnswer = async (req, res) => {
       "INSERT INTO answers (question_id, user_id, answer) VALUES (?, ?, ?)",
       [questionId, req.user.id, answer]
     );
-    
-    res.json({ 
-      msg: "Answer posted", 
-      answerId: result.insertId 
+
+    res.json({
+      msg: "Answer posted",
+      answerId: result.insertId,
     });
-    
   } catch (error) {
     res.status(500).json({ error: "Database error" });
   }
@@ -30,7 +25,7 @@ export const postAnswer = async (req, res) => {
 
 export const getAnswers = async (req, res) => {
   const { questionId } = req.params;
-  
+
   try {
     const [rows] = await db.query(
       `SELECT a.answer, u.username 
@@ -45,8 +40,3 @@ export const getAnswers = async (req, res) => {
     res.status(500).json({ error: "Database error" });
   }
 };
-<<<<<<< HEAD:back-end/src/controller/answerController.js
-
-
-=======
->>>>>>> 8d621b9409ec206abe6873c1b588ed1b2e87bcb6:backend/src/controllers/answerController.js
