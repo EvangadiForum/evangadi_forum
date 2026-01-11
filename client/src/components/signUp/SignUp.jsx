@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import api from '../../pages/axiosConfig/AxiosConfig'
+import api from "../../pages/axiosConfig/AxiosConfig";
 import classes from "./signup.module.css";
 
 const SignUp = () => {
@@ -189,3 +189,5 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+// Test
