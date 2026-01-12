@@ -4,8 +4,8 @@
 CREATE DATABASE IF NOT EXISTS evangadi_db;
 USE evangadi_db;
 
-CREATE USER 'Eva_User'@'%' IDENTIFIED BY 'your_password_here';
-GRANT ALL PRIVILEGES ON evangadi_db.* TO 'Eva_User'@'%';
+/* CREATE USER IF NOT EXISTS 'Eva_User'@'%' IDENTIFIED BY 'your_password_here'; */
+/* GRANT ALL PRIVILEGES ON evangadi_db.* TO 'Eva_User'@'%'; */
 
 /*create "user" table*/
 CREATE TABLE IF NOT EXISTS `users` (

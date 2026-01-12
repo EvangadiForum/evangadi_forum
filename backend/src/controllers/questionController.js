@@ -18,7 +18,7 @@ export const getQuestions = async (req, res) => {
       ORDER BY questions.id DESC
     `);
 
-    res.json(rows);
+    res.json({ questions: rows });
   } catch (error) {
     console.error("Error fetching questions:", error);
     res.status(500).json({ msg: "Server error" });
@@ -66,9 +66,6 @@ export const getQuestionById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    console.log("Received request for question ID:", id);
-    console.log("User from token:", req.user);
-
     // Get question with user details
     const [questions] = await db.query(
       `
@@ -92,7 +89,7 @@ export const getQuestionById = async (req, res) => {
       return res.status(404).json({ msg: "Question not found" });
     }
 
-    res.json(questions[0]);
+    res.json({ question: questions[0] });
   } catch (error) {
     console.error("Error fetching question:", error);
     res.status(500).json({ msg: "Server error" });

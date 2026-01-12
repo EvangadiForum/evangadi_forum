@@ -5,6 +5,7 @@ import cors from "cors";
 import authRoutes from "./src/routes/auth.js";
 import answerRoutes from "./src/routes/answersRoutes.js";
 import questionRoutes from "./src/routes/questionRoutes.js";
+import dbConnection from "./src/config/db.js";
 
 const app = express();
 
@@ -30,6 +31,16 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+async function startServer() {
+  try {
+    await dbConnection.execute("SELECT 'test'");
+    console.log("Database connection established");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+startServer();

@@ -45,6 +45,7 @@ export async function register(req, res) {
       message: "User registered successfully",
     });
   } catch (err) {
+    console.log(err);
     return res.status(500).json({
       error: "Internal Server Error",
       message: "An unexpected error occurred.",
@@ -93,17 +94,11 @@ export async function login(req, res) {
       { expiresIn: "7d" }
     );
 
-    // Return user data along with token
     return res.status(200).json({
       message: "User login successful",
       token,
-      user: {
-        id: user.id,
-        username: user.username,
-      },
     });
   } catch (err) {
-    console.error("Login error:", err);
     return res.status(500).json({
       error: "Internal Server Error",
       message: "An unexpected error occurred.",
@@ -116,6 +111,6 @@ export function checkUser(req, res) {
   return res.status(200).json({
     message: "Valid user",
     username: req.user.username,
-    id: req.user.id,
+    userid: req.user.userid,
   });
 }
