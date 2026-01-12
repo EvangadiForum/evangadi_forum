@@ -172,11 +172,23 @@ export default function Landing() {
         <p className={styles.about}> About </p>
         <h1 className={styles.heroTitle}>Evangadi Networks Q&amp;A</h1>
         <p className={styles.heroText}>
-          Welcome to Evangadi Forum, a tech community for global networking and
-          learning. Join us to connect with peers, collaborate on projects, and
-          enhance your professional growth. Explore the features that can
-          elevate your tech journey today. Ask programming questions, get help
-          from the community, and help others by answering.
+          Evangadi Forum is a community-driven question and answer platform
+          designed to help learners grow through collaboration and shared
+          knowledge. It provides a space where users can ask programming and
+          technology-related questions, explore solutions from others, and
+          contribute their own expertise. By encouraging open discussion and
+          problem-solving, Evangadi Forum creates an environment where students
+          learn not just from content, but from each other.
+        </p>
+        <br />
+        <p>
+          Built with modern web technologies, Evangadi Forum focuses on speed,
+          security, and ease of use to deliver a smooth learning experience.
+          With features like user authentication, question posting, and
+          community-powered answers, the platform supports meaningful
+          interaction and continuous learning. Our goal is to make technical
+          education more accessible and engaging by connecting people who want
+          to learn and help others succeed.
         </p>
         <button
           className={styles.howBtn}

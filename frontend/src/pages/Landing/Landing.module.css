@@ -70,6 +70,10 @@
   outline: none;
   background: #fff;
 }
+input:focus {
+  outline: 2px solid #f78502;
+  border-color: #f78502;
+}
 
 .row {
   display: flex;
