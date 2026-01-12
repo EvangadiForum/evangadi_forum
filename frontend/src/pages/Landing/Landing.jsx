@@ -180,16 +180,7 @@ export default function Landing() {
           problem-solving, Evangadi Forum creates an environment where students
           learn not just from content, but from each other.
         </p>
-        <br />
-        <p>
-          Built with modern web technologies, Evangadi Forum focuses on speed,
-          security, and ease of use to deliver a smooth learning experience.
-          With features like user authentication, question posting, and
-          community-powered answers, the platform supports meaningful
-          interaction and continuous learning. Our goal is to make technical
-          education more accessible and engaging by connecting people who want
-          to learn and help others succeed.
-        </p>
+        
         <button
           className={styles.howBtn}
           onClick={() => navigate("/how-it-works")}
