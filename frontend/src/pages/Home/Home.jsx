@@ -10,6 +10,8 @@ export default function Home() {
   const [questions, setQuestions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [err, setErr] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
 
   useEffect(() => {
     (async () => {
@@ -25,6 +27,25 @@ export default function Home() {
   const filteredQuestions = questions.filter((q) =>
     q.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
+  const displayedQuestions = filteredQuestions.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
+ 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   return (
     <div className={styles.page}>
@@ -47,12 +68,12 @@ export default function Home() {
       {err && <div className={styles.alert}>{err}</div>}
 
       <div className={styles.list}>
-        {filteredQuestions.length === 0 ? (
+        {displayedQuestions.length === 0 ? (
           <div style={{ padding: "20px", textAlign: "center", color: "#666" }}>
             No questions found.
           </div>
         ) : (
-          filteredQuestions.slice(0, 8).map((q) => (
+          displayedQuestions.map((q) => (
             <Link key={q.id} className={styles.item} to={`/question/${q.id}`}>
               <div className={styles.avatar}>
                 <FaUserAstronaut />
@@ -66,6 +87,28 @@ export default function Home() {
           ))
         )}
       </div>
+
+      {totalPages > 1 && (
+        <div className={styles.pagination}>
+          <button
+            onClick={handlePrev}
+            disabled={currentPage === 1}
+            className={styles.pageBtn}
+          >
+            Prev
+          </button>
+          <span className={styles.pageInfo}>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className={styles.pageBtn}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
