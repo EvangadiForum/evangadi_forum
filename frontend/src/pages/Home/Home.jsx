@@ -11,7 +11,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [err, setErr] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 4;
 
   useEffect(() => {
     (async () => {
